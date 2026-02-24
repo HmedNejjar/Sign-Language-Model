@@ -1,1 +1,1 @@
-# Sign-Language-Mddel
+# Sign-Language-Model
