@@ -6,6 +6,15 @@ from torch import Tensor
 
 class SLModel(nn.Module):
     def __init__(self, num_classes: int, input_size:int = 225, hidden_size: int = 128, num_layers:int = 2,num_neurons:int = 64, dropout: float = 0.3) -> None:
+        """
+        Args:
+            num_classes: number of classes the model needs to predict from
+            input_size: number of features per neuron
+            hidden_size: number of predictions per neuron
+            num_layers: number of layers in the model's architecture
+            num_neurons: number of neurons per cortical columnm network (CCN)
+            dropout: % of neurons to turn off during training
+        """
         super().__init__()
         
         self.hidden_size = hidden_size
