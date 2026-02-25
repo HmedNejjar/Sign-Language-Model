@@ -20,7 +20,7 @@ class SignLangDataset(Dataset):
         # Get path and word from dataframe Row
         row = self.df.iloc[idx]
         keypoints_path = row['keypoint']
-        word = str(row["word"]).strip().lower()
+        word = str(row["word"]).strip()
         
         # Load the array and make it float32 for PyTorch compatibility
         try:
@@ -31,8 +31,12 @@ class SignLangDataset(Dataset):
             keypoints = np.zeros((60, 225), dtype=np.float32)
             
         # Convert string label to integer    
-        encoded = cast(np.ndarray, self.label_encoder.transform([word]))
-        label = int(encoded[0])
+        try:
+            encoded = cast(np.ndarray, self.label_encoder.transform([word]))
+            label = int(encoded[0])
+        except ValueError as e:
+            print(f"Error with word at index {idx}: '{word}' | Row data: {row}")
+            raise
         
         # Returns a tuple of (keypoint, corresponing label (converted Text) )
         return (torch.tensor(keypoints), torch.tensor(label, dtype=torch.long))
