@@ -118,5 +118,11 @@ def main() -> None:
         print("-" * 30)
         
 if __name__ == "__main__":
-    main()
+    i = 0
+    while True:
+        main()
+        print("\n" + "="*50)
+        print(f"Training completed! Restarting for {i}th time...")
+        i += 1
+        print("="*50 + "\n")
             
