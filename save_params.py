@@ -6,7 +6,7 @@ def save_params(model: SLModel):
     MODEL_PATH = Path('models')
     MODEL_PATH.mkdir(parents=True, exist_ok=True)
     
-    MODEL_NAME = "MSL_model.pth"   
+    MODEL_NAME = "SignLang_model.pth"   
     MODEL_SAVE_PATH = MODEL_PATH / MODEL_NAME
 
     torch.save(obj=model.state_dict(), f=MODEL_SAVE_PATH) 

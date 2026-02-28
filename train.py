@@ -77,7 +77,7 @@ def evaluate(model: SLModel, test_loader: DataLoader, loss_fn: nn.CrossEntropyLo
 # ---------------------------------------------------------
 
 def main() -> None:
-    worst_loss = float('inf')   #Setting worst case scenario
+    worst_loss = 7.13 #Setting worst case scenario
     
     if MODEL_FILE_PATH.exists():
         print(f"Loading existing weights from {MODEL_FILE_PATH}...")
